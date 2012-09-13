@@ -1,0 +1,90 @@
+/* -----------------------------------------------------------------------
+Target Browsers:
+Media Type: Screen, Projection
+Width: All Sizes
+Version: $Rev$ $Id$
+------------------------------------------------------------------------ */
+.tabs h3 { visibility:hidden; display:none }
+.tabs p { font-size:14px }
+.wrap p { font-size:14px }
+div#logo-wrap { float:left;; width:111px; margin:12px 20px 0 0; text-align:right; font-size:11px }
+div#logo-wrap a { color:#666; text-decoration:none!important }
+div#logo-wrap a:hover { color:#2378A0 }
+img#logo { width:111px; border:none; clear:both; margin-bottom:5px }
+.breaker-bottom { clear:both; display:block }
+.wrap .button-primary { margin-top:10px }
+.wrap ul#sales { float:left; margin:0; padding:0 } 
+.wrap ul#sales li { font-size:14px; padding-left:70px }
+.wrap ul#sales li#pagination_styles { background: url(../images/styles-logo16x16.png) left center no-repeat }
+.wrap ul#sales li#auto_scrolling_pagination { background: url(../images/scrolling-auto-logo.png) left center no-repeat }
+.wrap ul#sales li#three_modules { background: url(../images/three-modules.png) left center no-repeat }
+.wrap ul#sales li.pitch { font-size:12px }
+.wrap ul#sales li.spacer { margin:0px; padding:0px; height:10px } 
+.border { border-top:1px solid #CCC; padding:5px 0 0 0; margin:8px 0 0 0 }
+p#list { font-size:11px; color:#666; margin-top:0 }
+p#list a { color:#666 }
+p#list a:hover { text-decoration:none }
+p#complete { color:#090 }
+.description { padding:0 0 0 20px; font-size:11px; cursor:text!important }
+.form-table th { padding:13px 0 0 0 }
+#inline-nextpage, #view-single-link { margin-top:4px }
+#single_view th { width:320px!important }
+.p-header { font-weight:bold; margin:30px 0 -10px 0 }
+.p-header-2 { font-weight:bold; margin:-5px 0 10px 0 }
+
+/* */
+.tabs .nav-tab-wrapper {
+    border-bottom: 1px solid #CCC;
+    padding-bottom: 0;
+}
+
+.tabs .nav-tab-wrapper ul {
+    margin: 20px 0 0;
+}
+
+.tabs .nav-tab {
+    font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif;
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.tabs .nav-tab a {
+    text-decoration: none;
+    color: #AAA;
+    display: inline-block;
+    text-indent: 21px;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+
+.ui-tabs-selected {
+    border-color: #CCC #CCC #FFF;
+    border-width: 1px;
+    color: #464646;
+}
+
+.nav-tab.ui-tabs-selected a {
+    color: #464646;
+}
+
+.tab {
+    margin: 12px 0 0 ;
+}
+
+#tab-single_view {
+    background-image: url('../images/single-page-logo16x16.png');
+}
+
+#tab-pagination_styles {
+    background-image: url('../images/styles-logo16x16.png');
+}
+
+#tab-auto_pagination {
+    background-image: url('../images/auto-logo16x16.png');
+}
+
+#tab-scrolling_pagination {
+    background-image: url('../images/scrolling-logo16x16.png');
+}
