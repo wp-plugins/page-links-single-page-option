@@ -1,0 +1,8 @@
+span.plp_logo {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    background: url(../images/logo-16x16.png) no-repeat top left;
+    vertical-align: middle;
+}
