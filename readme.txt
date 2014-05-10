@@ -16,7 +16,7 @@ Requires at least: 3.0
 Tested up to: 3.9
 
 
-Stable tag: 2.1
+Stable tag: 2.2
 
 
 License: GPLv3 or later
@@ -28,7 +28,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 
 
-Adds a "single page" option to Page-Link-tag-generated page lists.
+Adds a "single page" option to WordPress page lists.
 
 
 
@@ -40,7 +40,7 @@ Adds a "single page" option to Page-Link-tag-generated page lists.
 
 
 
-While the WordPress Page-Link tag makes integrating page links rather effortless, it doesn't offer a native single-page option. Addressing this limitation, the basic Page-Links Plus plugin adds this option to WordPress page lists. 
+While WordPress' [&#60;!--nextpage--&#62; quicktag](http://codex.wordpress.org/Write_Post_SubPanel#Quicktags) and [wp_link_pages() function](http://codex.wordpress.org/Function_Reference/wp_link_pages) make integrating page links rather effortless, WordPress doesn't offer a native single-page option. Addressing this limitation, the basic Page-Links Plus plugin adds this option to WordPress page lists. 
 
 
 
@@ -145,7 +145,7 @@ The Single Page module also serves as the basic framework for the other [Page-Li
 == Screenshots ==
 
 
-Try a demo and review screenshots here: [http://pagelinksplus.com/plp-demo/](http://pagelinksplus.com/plp-demo/).
+Try a fully-functioning demo here: [http://demo.pagelinksplus.com/wp-login.php](http://demo.pagelinksplus.com/wp-login.php).
 
 
 
@@ -159,6 +159,13 @@ Review the PLP change log here: [http://pagelinksplus.com/documentation-and-reso
 
 == Upgrade Notice ==
 
+
+= 2.2 (4/22/14) =
+
+Allows automatic pagination by number of paragraphs, number of words, and total number of pages. Ajax pagination option. Review the detailed PLP change log here: [http://pagelinksplus.com/documentation-and-resources/](http://pagelinksplus.com/documentation-and-resources/).
+
+
+
 = 2.1 (2/1/14) =
 
 v.2.1 adds a number of new features to PLP, all of which can be reviewed here: Review the PLP change log here: [http://pagelinksplus.com/documentation-and-resources/](http://pagelinksplus.com/documentation-and-resources/)
@@ -169,17 +176,14 @@ v.2.1 adds a number of new features to PLP, all of which can be reviewed here: R
 = 2.0 (9/12/12) =
 
 
-New functionality: top-level admin menu item and module framework. Shortcode/HTML fix. Globally enable/disable single-page option for pages and posts using admin UI. (v.1.0 "?singlepage=1" URL parameter maintained.)
-
-
-
+New functionality: top-level admin menu item and module framework. Shortcode/HTML fix. Globally enable/disable single-page option for pages and posts using admin UI. (v.1.0 "?singlepage=1" URL parameter maintained.) Review the detailed PLP change log here: [http://pagelinksplus.com/documentation-and-resources/](http://pagelinksplus.com/documentation-and-resources/).
 
 
 
 = 1.1 (3/2/12) =
 
 
-Extra lines fix
+Extra lines fix. Review the detailed PLP change log here: [http://pagelinksplus.com/documentation-and-resources/](http://pagelinksplus.com/documentation-and-resources/).
 
 
 

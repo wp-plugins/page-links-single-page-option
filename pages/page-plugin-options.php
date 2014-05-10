@@ -13,11 +13,12 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF']))
     $sections = array_keys($sections_array);
 
     $messages    = get_settings_errors();
-    $current_tab = 'single_view';
+    $current_tab = '';
 
     if (!empty($messages[0]['message'])) {
         $current_tab = $messages[0]['message'];
 	}
+	
 ?>
 <style type="text/css">
     #icon-sh-page-links-options {
@@ -45,7 +46,59 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF']))
 			$('.nav-tab-wrapper li[aria-controls="'+hash+'"] a').click();
 		});
     })
+
 	jQuery(document).ready(function($) {
+
+		<?php
+		if ($current_tab != "") {
+			echo '$("#tab-'. $current_tab .'").click();';
+			echo '$("#input-current-tab").val("'. $current_tab .'");';
+		} else {
+			?>
+			if(window.location.hash) {
+				str = window.location.hash;
+				str = str.replace("#","");
+				$("#input-current-tab").val(str);
+			}
+			<?php
+		}
+		?>
+
+		$("#break-type").change( function() {
+			if ($(this).val()==0)
+				$("#paragraph-count").val('3');
+			else if ($(this).val()==1)
+				$("#paragraph-count").val('2');
+			else if ($(this).val()==2)
+				$("#paragraph-count").val('50');
+		});
+
+		$(".ui-tabs-nav .nav-tab a").click( function() {
+			$("#input-current-tab").val($("li.ui-tabs-active").attr('aria-controls'));
+		});
+
+		$("#sh_pagelinks_options_form").submit( function(e) {
+
+			if ($("#break-type").length>0) {
+
+				if (  $("#break-type").val()==0 && $("#paragraph-count").val() < 3)
+					$("#paragraph-count").val('3');
+				else if ($("#break-type").val()==1 && $("#paragraph-count").val() < 2)
+					$("#paragraph-count").val('2');
+				else if ($("#break-type").val()==2 && $("#paragraph-count").val() < 50)
+					$("#paragraph-count").val('50');
+			}
+			if ($("#use-ajax").val()!="0") {
+				if ($("#wrapper-tag").val()=="")
+					$("#wrapper-tag").val('div');
+				if ($("#wrapper-id").val()=="")
+					$("#wrapper-id").val('post-pagination');
+			}
+
+			return true;
+
+		});
+
   		$("#restorevalue").click(function() {
 			currentPanel = $(".ui-tabs-nav li.ui-tabs-active a").attr("href");
 			if (currentPanel == "#single_view") {
@@ -57,6 +110,7 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF']))
 						$(this).attr("checked",false);
 				});
 			} else if (currentPanel == "#pagination_styles") {
+				$("#use-ajax").val('0');
 				$('#before-content').val('<p>Pages:');
 				$('#after-content').val('</p>');
 				$('#link-before').val('');
@@ -70,7 +124,9 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF']))
 				$("#link-wrapper").val('span');
 				$("#link-wrapper-class").val('');
 			} else if (currentPanel == "#auto_pagination") {
+				$("#break-type").val(0);
 				$("#paragraph-count").val(3);
+				$("#inline-nextpage").attr('checked', false);
 			} else if (currentPanel == "#scrolling_pagination") {
 				$("#pages-to-scroll-count").val(3);
 				$("#nextpagelink").val('<?php _e("Next", SH_PAGE_LINKS_DOMAIN); ?>');
@@ -143,7 +199,6 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF']))
 		jQuery("#sepval-6").html(sepval);
 		jQuery("#sepval-7").html(sepval);
 		jQuery("#sepval-8").html(sepval);
-		
 		
 	});
 	jQuery(function (){
@@ -234,7 +289,6 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF']))
 		});       
 	});
 	
-		
 </script>
 <div class="wrap">
 	
@@ -293,7 +347,7 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF']))
     <form action="options.php" method="post" id="sh_pagelinks_options_form">
 
         <?php settings_fields('sh_page_links_options'); ?>
-
+        
         <div class="tabs">
 
             <div class="nav-tab-wrapper">

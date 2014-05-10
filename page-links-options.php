@@ -67,16 +67,28 @@ class SH_PageLinks_Options
                 SH_PAGE_LINKS_URL . 'images/logo-16x16.png'
             );
             add_action('admin_print_styles-' . $menu_page, array($this, 'enqueue_scripts'));
-			add_submenu_page(
-				'sh-page-links-options',
-				__('Single Page', SH_PAGE_LINKS_DOMAIN),
-				__('Single Page', SH_PAGE_LINKS_DOMAIN),
-				'manage_options',
-				'sh-page-links-options',
-				array($this, 'show_menu_page')
-			);
+            add_submenu_page(
+                'sh-page-links-options',
+                __('Single Page', SH_PAGE_LINKS_DOMAIN),
+                __('Single Page', SH_PAGE_LINKS_DOMAIN),
+                'manage_options',
+                'sh-page-links-options',
+                array($this, 'show_menu_page')
+            );
         }
-        add_action( 'admin_enqueue_scripts', function () { return wp_enqueue_style( 'plp-global' );} );
+        add_action( 'admin_enqueue_scripts', array($this, 'admin_styles') );
+    }
+ 
+    /**
+     * admin_styles()
+     * Enqueue special style for admin
+     *
+     * @return void
+     */
+    public function admin_styles()
+    {
+        
+        return wp_enqueue_style( 'plp-global' );
     }
 
 
@@ -260,9 +272,23 @@ class SH_PageLinks_Options
                         . "name=\"sh_page_links_options[{$option['section']}]"
                         . "[{$option['name']}]\" "
                         . "id=\"{$option['id']}\" "
-						. "value=\"{$option['default']}\" "
+                        . "value=\"{$option['default']}\" "
                         . checked($option['default'], $value, false)
                         . " /></label> </td><td class='description'>{$option['description']}";
+        }
+        if ($option['type'] == 'select') {
+            $value = !empty($option_values[$option['section']][$option['name']])
+                        ? intval($option_values[$option['section']][$option['name']])
+                        : 0;
+            $option_str = "<select "
+                        . "name=\"sh_page_links_options[{$option['section']}]"
+                        . "[{$option['name']}]\" "
+                        . "id=\"{$option['id']}\" >";
+
+            foreach ($option['choices'] as $key => $choice) {
+                $option_str .= '<option value="'. $key .'" '. selected( $key, $value, false ) .'>'. $choice . '</option>';
+            }
+            $option_str .= "</select></td><td class='description'>{$option['description']}";
         }
 
         if ($option['type'] == 'multicheckcp') {
