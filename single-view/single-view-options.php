@@ -37,6 +37,12 @@ class SH_PageLinks_SingleView_Options
          *      |_ Option
          *              |_ Option Setting
          */
+
+        if (class_exists('SH_PageLinks_PagStyles_Bootstrap') || class_exists('SH_PageLinks_AutoPag_Bootstrap') || class_exists('SH_PageLinks_ScrollingPagination_Bootstrap'))
+            $enable_title = __("Enable PLP for these post types:", SH_PAGE_LINKS_DOMAIN);
+        else
+            $enable_title = __("Enable a 'Single Page' option for these post types:", SH_PAGE_LINKS_DOMAIN);
+
         $new_options = array(
             'single_view' => array(
                 'view_single_link' => array(
@@ -67,7 +73,7 @@ class SH_PageLinks_SingleView_Options
 				
                 'enabled_posts' => array(
                     'id'      => 'enabled-posts',
-                    'title'   => __("Enable a 'Single Page' option for these post types:", SH_PAGE_LINKS_DOMAIN),
+                    'title'   => $enable_title,
                     //'description'   => __('Globally enable a single-page option for all page link lists.', SH_PAGE_LINKS_DOMAIN),
                     'type'    => 'multicheckcp',
                     'valid'   => 'array',
