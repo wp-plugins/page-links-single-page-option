@@ -4,7 +4,7 @@ Donate link: https://pagelinksplus.com
 Tags: nextpage, wp_link_pages, link_pages, Page-Link, multipage, next page, pages, single page, single view, view all, all pages, pagination
 Requires at least: 3.0
 Tested up to: 4.0.1
-Stable tag: 2.3
+Stable tag: 2.3.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -54,6 +54,10 @@ Try a fully-functioning demo here: [http://demo.pagelinksplus.com/wp-login.php](
 Review the PLP change log here: [http://pagelinksplus.com/documentation-and-resources/](http://pagelinksplus.com/documentation-and-resources/)
 
 == Upgrade Notice ==
+
+= 2.3.1 (11/25/14) =
+
+Bug fixes
 
 = 2.3 (11/12/14) =
 
