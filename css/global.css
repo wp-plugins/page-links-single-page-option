@@ -1,0 +1,13 @@
+span.plp_logo {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    background: url(../images/logo-16x16.png) no-repeat top left;
+    vertical-align: middle;
+}
+
+#plp-in-two { float:left; width:40% }
+#plp-in-two iframe { width:90%; height:215px }
+#plp-in-two h3 { margin: 5px 0 10px 0 }
+.sales-new { width:50%; float:left; padding-top: 30px!important; }
